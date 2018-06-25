@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+	<title>加载</title>
+	<script type="text/javascript" src="vue.js"></script>
+	<link rel="stylesheet" href="css/animation.css">
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			font-size: 12px;
+			height: 100vh;
+			overflow: hidden;
+		}
+		.lod_box {
+			width: 100%;
+			height: 100vh;
+			background: url(bg.png) no-repeat;
+			padding-top: 13rem;
+		}
+		.lod {
+			width: 6rem;
+			height: 100vh;
+			margin: 0 auto;
+			position: relative;
+			display: block;
+		}
+		.lod_img {
+			width: 8rem;
+			position: absolute;
+			top: -2px;
+			left: -28%;
+		}
+		.log_img {
+			width: 12rem;
+			position: absolute;
+			top: -20px;
+			left: -60%;
+		}
+		.lox_img {
+			width: 18rem;
+			position: absolute;
+			top: 8rem;
+			left: -100%;
+		}
+		.page1 {
+			width: 100%;
+			height: 100vh;
+			position: relative;
+			color: #fff;
+			background: url(bg.png) no-repeat;
+		}
+		.p1_3 {
+			width: 5rem;	
+			position: absolute;
+			top: 20px;
+			left: 50%;
+			margin-left: -40px;
+			animation: fadeIn 0.75s both;
+			-webkit-animation: fadeIn 0.75s cubic-bezier(0.215,0.61,0.355,1) both;
+		}
+		.p1_2 {
+			width: 90%;
+			position: absolute;
+			top: 80px;
+			left: 50%;
+			margin-left: -169px;
+			animation: fadeIn 0.75s both;
+			-webkit-animation: fadeIn 0.75s cubic-bezier(0.215,0.61,0.355,1) both;
+		}
+		.p1_box {
+			width: 375px;
+			height: 22rem;
+			position: relative;
+		}
+		.p1_box img {
+			width: 22rem;
+			position: absolute;
+			left: 12px;
+			top: 156px;
+		}
+		.p1 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+		}
+		.p2 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+		}
+		.p3 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+		}
+		.p4 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s both;
+		}
+		.p5 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+		}
+		.p6 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s both;
+		}
+		.p7 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s both;
+		}
+		.p8 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
+		}
+		.p9 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.9s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.9s both;
+		}
+		.p10 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.0s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.0s both;
+		}
+		.p11 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.1s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.1s both;
+		}
+		.p12 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.2s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.2s both;
+		}
+		.p13 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.3s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.3s both;
+		}
+		.p14 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.4s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.4s both;
+		}
+		.p15 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+		}
+		.p16 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.6s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.6s both;
+		}
+		.p17 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.7s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.7s both;
+		}
+		.p18 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.8s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.8s both;
+		}
+		.p19 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.9s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.9s both;
+		}
+		.p20 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.0s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.0s both;
+		}
+		.p21 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.1s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.1s both;
+		}
+		.p22 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.2s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.2s both;
+		}
+		.p23 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.3s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.3s both;
+		}
+		.p24 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.4s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.4s both;
+		}
+		.p25 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.5s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.5s both;
+		}
+		.p26 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.6s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.6s both;
+		}
+		.p27 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.7s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.7s both;
+		}
+		.p28 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
+		}
+		.p29 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.4s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.4s both;
+		}
+		.p30 {
+			animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+			-webkit-animation: scaleIn 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.9s both;
+		}
+
+		.p_1 {
+			animation: vibrate 0.8s linear 0.1s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.1s infinite both;
+		}
+		.p_2 {
+			animation: vibrate 0.8s linear 0.3s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.3s infinite both;
+		}
+		.p_3 {
+			animation: vibrate 0.8s linear 0.2s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.2s infinite both;
+		}
+		.p_4 {
+			animation: vibrate 0.8s linear 0.5s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.5s infinite both;
+		}
+		.p_5 {
+			animation: vibrate 0.8s linear 0.1s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.1s infinite both;
+		}
+		.p_6 {
+			animation: vibrate 0.8s linear 0.4s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.3s infinite both;
+		}
+		.p_7 {
+			animation: vibrate 0.8s linear 0.2s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.2s infinite both;
+		}
+		.p_8 {
+			animation: vibrate 0.8s linear 0.1s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.1s infinite both;
+		}
+		.p_9 {
+			animation: vibrate 0.8s linear 0.3s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.3s infinite both;
+		}
+		.p_10 {
+			animation: vibrate 0.8s linear 0.5s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.5s infinite both;
+		}
+		.p_11 {
+			animation: vibrate 0.8s linear 0.3s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.3s infinite both;
+		}
+		.p_12 {
+			animation: vibrate 0.8s linear 0.4s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.4s infinite both;
+		}
+		.p_13 {
+			animation: vibrate 0.8s linear 0.2s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.2s infinite both;
+		}
+		.p_14 {
+			animation: vibrate 0.8s linear 0.3s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.3s infinite both;
+		}
+		.p_15 {
+			animation: vibrate 0.8s linear 0.1s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.1s infinite both;
+		}
+		.p_16 {
+			animation: vibrate 0.8s linear 0.2s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.2s infinite both;
+		}
+		.p_17 {
+			animation: vibrate 0.8s linear 0.4s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.4s infinite both;
+		}
+		.p_18 {
+			animation: vibrate 0.8s linear 0.5s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.5s infinite both;
+		}
+		.p_19 {
+			animation: vibrate 0.8s linear 0.2s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.2s infinite both;
+		}
+		.p_20 {
+			animation: vibrate 0.8s linear 0.3s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.3s infinite both;
+		}
+		.p_21 {
+			animation: vibrate 0.8s linear 0.1s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.1s infinite both;
+		}
+		.p_22 {
+			animation: vibrate 0.8s linear 0.3s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.3s infinite both;
+		}
+		.p_23 {
+			animation: vibrate 0.8s linear 0.4s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.4s infinite both;
+		}
+		.p_24 {
+			animation: vibrate 0.8s linear 0.5s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.5s infinite both;
+		}
+		.p_25 {
+			animation: vibrate 0.8s linear 0.3s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.3s infinite both;
+		}
+		.p_26 {
+			animation: vibrate 0.8s linear 0.2s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.2s infinite both;
+		}
+		.p_27 {
+			animation: vibrate 0.8s linear 0.1s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.1s infinite both;
+		}
+		.p_28 {
+			animation: vibrate 0.8s linear 0.4s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.4s infinite both;
+		}
+		.p_29 {
+			animation: vibrate 0.8s linear 0.4s infinite both;
+			-webkit-animation: vibrate 0.8s linear 0.4s infinite both;
+		}
+		.button img {
+			width: 10rem;
+			position: absolute;
+			bottom: 1rem;
+			left: 50%;
+			margin-left: -80px;
+			animation: fadeIn 0.75s cubic-bezier(0.215,0.61,0.355,1) 3s both;
+			-webkit-animation: fadeIn 0.75s cubic-bezier(0.215,0.61,0.355,1) 3s both;
+		}
+		.p1_in {
+			width: 100%;
+			position: absolute;
+			bottom: 2rem;
+		}
+		.p1_z {
+			width: 5rem;
+			position: absolute;
+			left: 18px;
+			bottom: 0;
+			animation: moveLeft 1s infinite;
+			-webkit-animation: moveLeft 1s infinite;
+		}
+		.p1_y {
+			width: 5rem;
+			position: absolute;
+			right: 13px;
+			bottom: 0;
+			animation: moveRight 1s infinite;
+			-webkit-animation: moveRight 1s infinite;
+		}
+		.p1_left {
+			animation: leftIn 1s cubic-bezier(0.215,0.61,0.355,1) 3s both;
+		}
+		.p1_right {
+			animation: rightIn 1s cubic-bezier(0.215,0.61,0.355,1) 3s both;
+		}
+		.page2 {
+			width: 100%;
+			height: 100vh;
+			background: url(page2/p2_bg.png) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		.p2_2 {
+			width: 100%;
+			position: absolute;
+			top: 40px;
+			left: 0;
+		}
+		.p2_1 {
+			width: 100%;
+			position: absolute;
+			top: 100px;
+			left: 0;
+		}
+		.select {
+			width: 9.4rem;
+			height: 10rem;
+			position: relative;
+			margin: 0 auto;
+			padding-top: 20rem;
+		}
+		.iName {
+			width: 100px;
+			position: absolute;
+			bottom: 5.5rem;
+			left: 2rem;
+			outline: none;
+			border: none;
+			background: none;
+			text-align: center;
+			line-height: 14px;
+			font-size: 12px;
+		}
+		.sex {
+			width: 140px;
+			height: 60px;
+			position: absolute;
+			bottom: 18px;
+			left: 10px;
+		}
+		.sex:after {
+			content: '.';
+			height: 0;
+			display: block;
+			visibility: hidden;
+			clear: both;
+		}
+		.man {
+			width: 50px;
+			float: left;
+		}
+		.man_img {
+			width: 50px;
+			height: 55px;
+			background: url(page2/nan.png) no-repeat;
+			background-size: 100% 100%;
+			-webkit-transition: all 0.8s ease-out;
+			transition: all 0.8s ease-out;
+		}
+		.choise .man_img{
+			background: url(page2/nan_1.png) no-repeat;
+			background-size: 100% 100%;
+			-webkit-transition: all 0.8s ease-out;
+			transition: all 0.8s ease-out;
+		}
+		.feman {
+			width: 70px;
+			float: right;
+		}
+		.feman_img {
+			width: 66px;
+			height: 55px;
+			background: url(page2/nv.png) no-repeat;
+			background-size: 100% 100%;
+			-webkit-transition: all 0.8s ease-out;
+			transition: all 0.8s ease-out;
+		}
+		.choise .feman_img{
+			background: url(page2/nv_1.png) no-repeat;
+			background-size: 100% 100%;
+			-webkit-transition: all 0.8s ease-out;
+			transition: all 0.8s ease-out;
+		}
+		.enter {
+			width: 160px;
+			margin: 60px auto;
+			position: relative;
+		}
+		.enter img {
+			width: 160px;
+		}
+		.page3 {
+			width: 100%;
+			height: 100vh;
+			background: url(page3/ti_bg.png) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		.title_name {
+			width: 100%;
+			height: 90vh;
+			padding-top: 28px;
+		}
+		.title {
+			width: 88%;
+			height: 105px;
+			margin: 0 auto;
+			background: url(page3/gong.png) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		.pName {
+			width: 70px;
+			line-height: 15px;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			top: 30px;
+			left: 50%;
+			margin-left: -25px;
+			text-align: center;	
+		}
+		.ques1 {
+			position: relative;
+			margin-top: 20px;
+			animation: 1s both;
+			-webkit-animation: 1s both;
+		}
+		.q1_title img {
+			width: 250px;
+			padding-left: 30px;
+		}
+		.q1_con {
+			width: 100%;
+			height: 24rem;
+			margin-top: 10px;
+			background: url(Q1/p3_bgf.png) no-repeat;
+			background-size: 100% 100%;
+		}
+		.q1_con img {
+			width: 5.3rem;
+			height: 5rem;
+			position: absolute;
+			animation: q1answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+			-webkit-animation: q1answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+		}
+		.q1_a {
+			width: 7rem;
+			height: 7rem;
+			position: absolute;
+			top: 5.5rem;
+			left: 40px;
+			background: url(Q1/sprites.png) no-repeat;
+			background-size: 430% 300%;
+			animation: huluwa1 0.48s steps(1) infinite forwards;
+			-webkit-animation: huluwa1 0.48s steps(1) infinite forwards;
+		}
+		.a1_a {
+			width: 7rem;
+			height: 7rem;
+			position: absolute;
+			top: 5.5rem;
+			left: 40px;
+			background: url(Q1/p3_a1.png) no-repeat;
+			background-size: 100% 100%;
+		}
+		.q1_a img {
+			top: 0;
+			right: -4rem;
+		}
+		.q1_b {
+			width: 10rem;
+			height: 12.8rem;
+			position: absolute;
+			top: -10px;
+			right: 10px;
+			background: url(Q1/sprites2.png) no-repeat;
+			background-size: 640px 610px;
+			animation: huluwa2 0.8s steps(1) infinite forwards;
+			-webkit-animation: huluwa2 0.8s steps(1) infinite forwards;
+		}
+		.a1_b {
+			width: 10rem;
+			height: 13rem;
+			position: absolute;
+			top: -10px;
+			right: 10px;
+			background: url(Q1/sprites2.png) no-repeat;
+			background-size: 640px 610px; 
+		}
+		.q1_b img {
+			bottom: -10px;
+			right: -2.4rem;
+		}
+		.q1_c {
+			width: 10rem;
+			height: 8rem;
+			position: absolute;
+			bottom: 7rem;
+			left: 40px;
+			background: url(Q1/sprites3.png) no-repeat;
+			background-size: 300% 300%;
+			animation: huluwa3 0.8s steps(1) infinite forwards;
+			-webkit-animation: huluwa3 0.8s steps(1) infinite forwards;
+			
+		}
+		.a1_c {
+			width: 10rem;
+			height: 8rem;
+			position: absolute;
+			bottom: 7rem;
+			left: 40px;
+			background: url(Q1/p3_c1.png) no-repeat;
+			background-size: 100% 100%; 
+		}
+		.q1_c img {
+			bottom: -1.4rem;
+			right: -1.5rem;
+		}
+		.q1_d {
+			width: 6rem;
+			height: 7rem;
+			position: absolute;
+			bottom: 7.5rem;
+			right: 5rem;
+			background: url(Q1/sprites4.png) no-repeat;
+			background-size: 400% 300%;
+			animation: huluwa4 0.8s steps(1) infinite forwards;
+			-webkit-animation: huluwa4 0.8s steps(1) infinite forwards;
+		}
+		.a1_d {
+			width: 6rem;
+			height: 7rem;
+			position: absolute;
+			bottom: 7.5rem;
+			right: 5rem;
+			background: url(Q1/p3_d1.png) no-repeat;
+			background-size: 100% 100%; 
+		}
+		.q1_d img {
+			bottom: -0.8rem;
+			right: -4.5rem;
+		}
+		.q1_dian {
+			width: 90px;
+			position: absolute;
+			bottom: 60px;
+			right: 10px;
+			animation: q1_dian 4s linear 0.5s 1 both;
+			-webkit-animation: q1_dian 4s linear 0.5s 1 both;
+		}
+		.ques2 {
+			position: relative;
+			margin-top: 20px;
+			animation: q2sacle 0.75s cubic-bezier(0.215, 0.61, 0.355,1) both;
+		}
+		.q2_title img {
+			width: 200px;
+			padding-left: 30px;
+		}
+		.q2_con {
+			width: 100%;
+			height: 28rem;
+			background: url(Q2/p4_bgf.png) no-repeat;
+			background-size: 100% 74%;
+			position: relative;
+		}
+		.bofang {
+			width: 50px;
+			position: absolute;
+			left: 50%;
+			top: 6rem;
+			margin-left: -40px;
+			animation: jello 1.8s infinite both;
+			-webkit-animation: jello 1.8s infinite both;
+		}
+		.q2_a {
+			width: 13rem;
+			height: 1.5rem;
+			position: absolute;
+			bottom: 9.5rem;
+			left: 50%;
+			margin-left: -100px;
+		}
+		.q2_a img {
+			width: 100%;
+		}
+		.q2_a .q2_adui {
+			width: 6rem;
+			position: absolute;
+			right: -50px;
+			top: -40px;
+			animation: q2answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+			-webkir-animation: q2answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+		}
+		.q2_b {
+			width: 13rem;
+			height: 1.5rem;
+			position: absolute;
+			bottom: 7rem;
+			left: 50%;
+			margin-left: -100px;
+		}
+		.q2_b img {
+			width: 100%;
+		}
+		.q2_b .q2_bcuo {
+			width: 6rem;
+			position: absolute;
+			right: -70px;
+			top: -30px;
+			animation: q2answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+			-webkir-animation: q2answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+		}
+		.q2_c {
+			width: 13rem;
+			height: 1.5rem;
+			position: absolute;
+			bottom: 4.5rem;
+			left: 50%;
+			margin-left: -100px;
+		}
+		.q2_c img {
+			width: 100%;
+		}
+		.q2_c .q2_ccuo {
+			width: 6rem;
+			position: absolute;
+			right: -70px;
+			top: -30px;
+			animation: q2answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+			-webkir-animation: q2answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+		}
+		.q2_d {
+			width: 13rem;
+			height: 1.5rem;
+			position: absolute;
+			bottom: 2rem;
+			left: 50%;
+			margin-left: -100px;
+			}
+		.a2_d {
+			width: 13rem;
+			height: 1.5rem;
+			position: absolute;
+			bottom: 2rem;
+			left: 50%;
+			margin-left: -100px;
+			background: #fff;
+		}
+		.q2_d img {
+			width: 100%;
+		}
+		.q2_d .q2_dcuo {
+			width: 6rem;
+			position: absolute;
+			right: -70px;
+			top: -30px;
+			animation: q2answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+			-webkir-animation: q2answer 0.4s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+		}
+		.bck {
+			background: url(Q2/p4_xuan.png) no-repeat;
+		}
+		.q2_dian {
+			width: 90px;
+			position: absolute;
+			right: 6rem;
+			bottom: 16rem;
+			animation: q2_dian 4s linear 0.5s 1 both;
+			-webkit-animation: q2_dian 4s linear 0.5s 1 both;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="lod_box" v-show="page.lodShow">
+			<div class="lod">
+				<img class="lod_img" :src="img.lodImg" alt="" />
+				<img class="log_img" :src="img.logImg" alt="" />
+				<img class="lox_img" :src="img.loxImg" alt="" />
+			</div>
+		</div>
+		<div class="page1" v-show="page.page1Show">
+			<img class="p1_3" :src="img.p1_3" alt="" />
+			<img class="p1_2" :src="img.p1_2" alt="" />
+			<div class="p1_box">
+				<div :class="'p'+num" v-for="num in 29">
+					<img :class="'p_'+num" :src="'page1/'+num+'.png'" alt="" />
+				</div>
+				<div class="p30">
+					<img class="p_30" src="page1/p1_box.png" alt="" />
+				</div>
+			</div>
+			<div class="button" @click="p2Show">
+				<img src="page1/p1_an.png" alt="" />
+			</div>
+			<div class="p1_in">
+				<div class="p1_left">
+					<img class="p1_z" src="page1/p1_z.png" alt="" />
+				</div>
+				<div class="p1_right">
+					<img class="p1_y" src="page1/p1_y.png" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="page2" v-show="page.page2Show">
+			<img class="p2_2" src="page2/p2_2.png" alt="" />
+			<img class="p2_1" src="page2/p2_1.png" alt="" />
+			<div class="select">
+				<input class="iName" type="text" maxlength="5" placeholder="请输入你的名字" v-model="name" />
+				<div class="sex">
+					<div class="man" :class="choiseMan?'choise':''" @click="choise_man">
+						<div class="man_img"></div>
+					</div>
+					<div class="feman" :class="choiseFeman?'choise':''" @click="choise_feman">
+						<div class="feman_img"></div>
+					</div>
+				</div>
+			</div>
+			<div class="enter" @click="enter">
+				<img src="page2/p2_an.png" alt="" />
+			</div>
+		</div>
+		<div class="page3" v-show="page.page3Show">
+			<div class="title_name">
+				<div class="title">
+					<p class="pName">{{name}}</p>
+				</div>
+				<div class="ques1" v-show="ques1.q1">
+					<div class="q1_title">
+						<img src="Q1/p3_ti.png" alt="" />
+					</div>
+					<div class="q1_con" @click="a1a">
+						<div :class="ques1.answer == 'a1_a'?'q1_a':'a1_a'">
+							<img v-show="ques1.answer == 'a1_a'" src="Q1/cuo.png">
+						</div>
+						<div :class="ques1.answer == 'a1_b'?'q1_b':'a1_b'">
+							<img v-show="ques1.answer == 'a1_b'" src="Q1/cuo.png">
+						</div>
+						<div :class="ques1.answer == 'a1_c'?'q1_c':'a1_c'">
+							<img v-show="ques1.answer == 'a1_c'" src="Q1/dui.png">
+						</div>
+						<div :class="ques1.answer == 'a1_d'?'q1_d':'a1_d'">
+							<img v-show="ques1.answer == 'a1_d'" src="Q1/cuo.png">
+						</div>
+					</div>
+					<img src="page3/p3_dian.png" class="q1_dian" alt="" />
+				</div>
+				<div class="ques2" v-show="ques2.q2">
+					<div class="q2_title">
+						<img src="Q2/p4_ti.png" alt="" />
+					</div>
+					<div class="q2_con" @click="a2a">
+						<img :src="ques2.bofang?ques2.ztImg:ques2.bfImg" class="bofang" :alt="ques2.bofang?'zanting':'bofang'" />
+						<div class="q2_a" :class="ques2.answer == 'img1'?'bck':''">
+							<img src="Q2/p4_1t.png" alt="img1" />
+							<img v-show="ques2.answer == 'img1'" class="q2_adui" src="Q2/dui.png" alt="" />
+						</div>
+						<div class="q2_b" :class="ques2.answer == 'img2'?'bck':''">
+							<img src="Q2/p4_2t.png" alt="img2" />
+							<img v-show="ques2.answer == 'img2'" class="q2_bcuo" src="Q2/cuo.png" alt="" />
+						</div>
+						<div class="q2_c" :class="ques2.answer == 'img3'?'bck':''">
+							<img src="Q2/p4_3t.png" alt="img3" />
+							<img v-show="ques2.answer == 'img3'" class="q2_ccuo" src="Q2/cuo.png" alt="" />
+						</div>
+						<div class="q2_d" :class="ques2.answer == 'img4'?'bck':''">
+							<img src="Q2/p4_4t.png" alt="img4" />
+							<img v-show="ques2.answer == 'img4'" class="q2_dcuo" src="Q2/cuo.png" alt="" />
+						</div>
+						<audio src="Q2/bg1.mp3" preload="auto" loop="loop" ref="audio1"> 
+						</audio>
+					</div>
+					<img src="Q2/p4_dian.png" class="q2_dian" alt="" />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				msg: 'haoni',
+				img: {
+					lodImg: 'shoushi/lod1.png',
+					logImg: 'jindutiao/log_1.png',
+					loxImg: 'jindutiao/lox.png',
+					p1_3: 'page1/p1_3.png',
+					p1_2: 'page1/p1_2.png'
+				},
+				timer1: null,
+				timer2: null,
+				a: 1,
+				b: 1,
+				name: '',
+				choiseMan: true,
+				choiseFeman: false,
+				// 页面状态切换
+				page: {
+					lodShow: true,
+					page1Show: false,
+					page2Show: false,
+					page3Show: false
+				},
+				// 分数统计
+				Q1: 0,
+				Q2: 0,
+				// Q1
+				ques1: {
+					q1: true,
+					answer: null
+				},
+				// Q2
+				ques2: {
+					q2: false,
+					answer: null,
+					bofang: false,
+					bfImg: 'Q2/bofang.png',
+					ztImg: 'Q2/zanting.png'
+				}
+				
+			},
+			mounted () {
+				clearInterval(this.timer1)
+				clearInterval(this.timer2)
+
+				this.timer2 = setInterval( () => {
+					let n = ++this.b
+					if(n > 9){
+						clearInterval(this.timer2)
+						n = 10
+					}
+					this.img.logImg = `jindutiao/log_${n}.png`
+				}, 400 )
+
+				this.timer1 = setInterval( () => {
+					let m = ++this.a
+					if(this.a > 10){
+						this.a = 1
+						m = 1
+					}
+					this.img.lodImg = `shoushi/lod${m}.png`
+					if(this.b == 10){
+						clearInterval(this.timer1)
+						this.img.lodImg = `shoushi/lod10.png`
+						setTimeout(() => {
+							this.page.lodShow = !this.page.lodShow
+							this.page.page1Show = !this.page.page1Show
+						}, 20)
+						
+					}
+				}, 80 )
+			},
+			methods: {
+				p2Show () {
+					this.page.page1Show = !this.page.page1Show
+					this.page.page2Show = !this.page.page2Show
+				},
+				choise_man () {
+					this.choiseMan = true
+					this.choiseFeman = false
+				},
+				choise_feman () {
+					this.choiseFeman = true
+					this.choiseMan = false
+				},
+				enter () {
+					if (this.name) {
+						this.page.page2Show = !this.page.page2Show
+						this.page.page3Show = !this.page.page3Show
+					} else {
+						alert("请输入你的名字")
+					}
+				},
+				a1a (ev) {
+					if(!this.ques1.answer) {
+						this.ques1.answer = ev.target.className
+					}
+					if(this.ques1.answer && this.ques1.answer !== 'q1_con') {
+						setTimeout(() => {
+							this.ques1.q1 = false
+							this.ques2.q2 = true
+						}, 2000)
+					}
+				},
+				a2a (ev) {
+					console.log(ev.target.alt)
+					if(ev.target.alt == 'bofang') {
+						this.$refs.audio1.play()
+						this.ques2.bofang = true
+					}
+					if(ev.target.alt == 'zanting') {
+						this.$refs.audio1.pause()
+						this.ques2.bofang = false
+					}
+					if(!this.ques2.answer || this.ques2.answer == 'bofang' || this.ques2.answer == 'zanting') {
+						this.ques2.answer = ev.target.alt
+					}
+					if(this.ques2.answer && this.ques2.answer !== 'q2_con' && this.ques2.answer !== 'bofang' && this.ques2.answer !== 'zanting') {
+						setTimeout(() => {
+							this.ques2.q2 = false
+						}, 2000)
+					}
+				}
+			}
+			
+		})
+	</script>
+</body>
+</html>
